@@ -1,15 +1,14 @@
-# (Projekt neve)
+# KIDKIR (Központi Iskolai Diák Kikérdező Informatikai Rendszer)
 
 # Csapattagok
-- Név
-- Név
-- Név
+- Kássa Máté
+- Szűcs Csaba
+- Tamás Zalán
 
 # Projekt leírása
 
-(Projekt leírása saját szavaiddal)
+Könnyű, egyszerűen használható tanulós szolgáltatás.
 
 # Tervezett termékek
-- Weblap (backend + frontend) **kötelező**
-- Natív asztali alkalmazás (opcionális)
-- Natív mobilalkalmazás (opcionális)
+- Weblap (backend + frontend)
+- Natív mobilalkalmazás
