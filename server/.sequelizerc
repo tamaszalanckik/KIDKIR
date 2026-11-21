@@ -4,7 +4,7 @@ const basePath = path.resolve(__dirname, "src", "db");
 
 module.exports =
 {
-    config: path.resolve(basePath, "config", "config.js"),
+    config: path.resolve(basePath, "config", "config.ts"),
     "migrations-path": path.resolve(basePath, "migrations"),
     "seeders-path": path.resolve(basePath, "seeders"),
 }
