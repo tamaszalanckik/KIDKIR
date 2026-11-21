@@ -4,10 +4,10 @@
 module.exports = {
   async up (queryInterface, _) {
     await queryInterface.bulkInsert("customizations", [
-      { language : "hu", mode: "light" },
-      { mode: "dark" },
-      { language : "en" },
-      { language : "en", mode : "dark" }
+      { ID : "c-01", language : "hu", mode : "light" },
+      { ID : "c-02", language : "hu", mode : "dark" },
+      { ID : "c-03", language : "en", mode : "light" },
+      { ID : "c-04", language : "en", mode : "dark" }
     ]);
   },
 

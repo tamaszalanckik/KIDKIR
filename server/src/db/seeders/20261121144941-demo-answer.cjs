@@ -4,9 +4,8 @@
 module.exports = {
   async up (queryInterface, _) {
     await queryInterface.bulkInsert("answers", [
-      { value : "Ady Endre", description : "Mert ő járt Párizsban." },
-      { value : "processzor", description : "Mert ez a számítógép agya." },
-      { value : "1848" }
+      { ID : "a-00-01", value : "Ady Endre", description : "Mert ő járt Párizsban." },
+      { ID : "a-00-02", value : "processzor", description : "Mert ez a számítógép agya." }
     ]);
   },
 

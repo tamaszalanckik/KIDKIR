@@ -4,9 +4,9 @@
 module.exports = {
   async up (queryInterface, _) {
     await queryInterface.bulkInsert("write_tasks", [
-      { question : "Mikor fedezte fel Kolombusz Kristóf Amerikát?" },
-      { question : "Melyik ország határos Magyarországgal északon?" },
-      { question : "6 + 4 - 15 = ?" },
+      { ID : "wt-00-01", question : "Mikor fedezte fel Kolombusz Kristóf Amerikát?" },
+      { ID : "wt-00-02", question : "Melyik ország határos Magyarországgal északon?" },
+      { ID : "wt-00-03", question : "6 + 4 - 15 = ?" },
     ]);
   },
 

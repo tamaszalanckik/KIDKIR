@@ -26,7 +26,8 @@
         "db:seed:undo": "npm run db:seed:undo:production & npm run db:seed:undo:dev",
         "db:remake": "npm run db:reset & npm run db:setup",
         "db:reload": "npm run db:remake & npm run db:seed",
-        "db:reseed": "npm run db:seed:undo & npm run db:seed"
+        "db:reseed": "npm run db:seed:undo & npm run db:seed",
+        "db:dev": "npm run db:reset:dev & npm run db:create:dev & npm run db:migrate:dev"
     },
     "type": "module",
     "devDependencies": {
@@ -44,6 +45,7 @@
     },
     "dependencies": {
         "cross-env": "^10.1.0",
+        "mysql2": "^3.24.6",
         "sequelize": "^6.37.8"
     }
 }

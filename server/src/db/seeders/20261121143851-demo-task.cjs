@@ -4,10 +4,9 @@
 module.exports = {
   async up (queryInterface, _) {
     await queryInterface.bulkInsert("tasks", [
-      { type : "card", accessibility : "private"},
-      { type : "pick", accessibility : "public"},
-      { type : "write" },
-      { accessibility : "public"},
+      { ID : "t-00-01", type : "card", accessibility : "private"},
+      { ID : "t-00-02", type : "pick", accessibility : "public"},
+      { ID : "t-00-03", type : "write", accessibility : "private" }
     ]);
   },
 

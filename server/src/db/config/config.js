@@ -1,4 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config({ quiet : true });
+
 const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT } = process.env || {};
+
+console.log(DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT)
 
 const options =
 {

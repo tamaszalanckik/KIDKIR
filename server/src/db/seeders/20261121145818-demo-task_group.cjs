@@ -4,9 +4,8 @@
 module.exports = {
   async up (queryInterface, _) {
     await queryInterface.bulkInsert("task_groups", [
-      { accessibility : "private" },
-      { accessibility : "public" },
-      { },
+      { ID : "tg-00-01", accessibility : "private" },
+      { ID : "tg-00-02", accessibility : "public" },
     ]);
   },
 

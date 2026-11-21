@@ -4,9 +4,8 @@
 module.exports = {
   async up (queryInterface, _) {
     await queryInterface.bulkInsert("card_tasks", [
-      { pair_count : 6 },
-      { pair_count : 8 },
-      { }
+      { ID : "ct-00-01", pair_count : 6 },
+      { ID : "ct-00-02", pair_count : 8 }
     ]);
   },
 
