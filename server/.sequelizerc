@@ -1,0 +1,10 @@
+const path = require("path");
+
+const basePath = path.resolve(__dirname, "api", "db");
+
+module.exports =
+{
+    config: path.resolve(basePath, "config", "config.js"),
+    "migrations-path": path.resolve(basePath, "migrations"),
+    "seeders-path": path.resolve(basePath, "seeders"),
+}

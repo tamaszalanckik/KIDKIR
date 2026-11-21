@@ -5,9 +5,28 @@
     "main": "server.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "tsx .",
-        "dev": "nodemon",
-        "prettier": "npx prettier --write ."
+        "start": "cross-env NODE_ENV=production tsx .",
+        "dev": "cross-env NODE_ENV=dev nodemon",
+        "prettier": "npx prettier --write .",
+        "db:create:production": "npx sequelize-cli db:create --env production",
+        "db:create:dev": "npx sequelize-cli db:create --env dev",
+        "db:create": "npm run db:create:production & npm run db:create:dev",
+        "db:reset:production": "npx sequelize-cli db:drop --env production",
+        "db:reset:dev": "npx sequelize-cli db:drop --env dev",
+        "db:reset": "npm run db:reset:production & npm run db:reset:dev",
+        "db:migrate:production": "npx sequelize-cli db:migrate --env production",
+        "db:migrate:dev": "npx sequelize-cli db:migrate --env dev",
+        "db:migrate": "npm run db:migrate:production & npm run db:migrate:dev",
+        "db:setup": "npm run db:create & npm run db:migrate",
+        "db:seed:production": "cross-env NODE_ENV=production npx sequelize-cli db:seed:all --env production",
+        "db:seed:dev": "npx sequelize-cli db:seed:all --env dev",
+        "db:seed": "npm run db:seed:production & npm run db:seed:dev",
+        "db:seed:undo:production": "npx sequelize-cli db:seed:undo:all --env production",
+        "db:seed:undo:dev": "npx sequelize-cli db:seed:undo:all --env dev",
+        "db:seed:undo": "npm run db:seed:undo:production & npm run db:seed:undo:dev",
+        "db:remake": "npm run db:reset & npm run db:setup",
+        "db:reload": "npm run db:remake & npm run db:seed",
+        "db:reseed": "npm run db:seed:undo & npm run db:seed"
     },
     "type": "module",
     "devDependencies": {
@@ -22,5 +41,9 @@
         "ts-node": "^10.9.2",
         "tsx": "^4.23.15",
         "typescript": "^7.0.2"
+    },
+    "dependencies": {
+        "cross-env": "^10.1.0",
+        "sequelize": "^6.37.8"
     }
 }
