@@ -1,37 +1,35 @@
 import dotenv from "dotenv";
-dotenv.config({ quiet : true });
+dotenv.config({ quiet: true });
 
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT } = process.env || {};
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT } =
+    process.env || {};
 
-console.log(DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT)
+console.log(DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT);
 
-const options =
-{
-    "migrationStorageTableName": "migrations",
-    
-    "seederStorage": "sequelize",
-    "seederStorageTableName": "seeders"
-}
+const options = {
+    migrationStorageTableName: "migrations",
+
+    seederStorage: "sequelize",
+    seederStorageTableName: "seeders",
+};
 
 export default {
-    production:
-    {
+    production: {
         username: DB_USER,
         password: DB_PASSWORD,
         database: DB_NAME,
         host: DB_HOST,
         dialect: DB_DIALECT,
 
-        ...options
+        ...options,
     },
-    dev:
-    {
+    dev: {
         username: DB_USER,
         password: DB_PASSWORD,
         database: `${DB_NAME}_dev`,
         host: DB_HOST,
         dialect: DB_DIALECT,
 
-        ...options
-    }
-}
+        ...options,
+    },
+};

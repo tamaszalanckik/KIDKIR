@@ -4,7 +4,6 @@
     "description": "",
     "main": "server.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "cross-env NODE_ENV=production tsx .",
         "dev": "cross-env NODE_ENV=dev nodemon",
         "prettier": "npx prettier --write .",

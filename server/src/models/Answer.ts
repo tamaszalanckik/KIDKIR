@@ -1,31 +1,35 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
 
-export default (sequelize:Sequelize) => {
-    class Answer extends Model {};
+export default (sequelize: Sequelize) => {
+    class Answer extends Model {}
 
     Answer.init(
         {
-            ID : {
-                type : DataTypes.UUID,
-                primaryKey : true,
+            ID: {
+                type: DataTypes.UUID,
+                primaryKey: true,
                 defaultValue: DataTypes.UUIDV4,
-                allowNull: false
+                allowNull: false,
             },
-            value : {
-                type : DataTypes.STRING,
-                allowNull : false
+            value: {
+                type: DataTypes.STRING,
+                allowNull: false,
             },
-            description : {
-                type : DataTypes.STRING,
-                allowNull : false,
-                defaultValue : "No description provided."
-            }
+            description: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                defaultValue: "No description provided.",
+            },
+            good_answer: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: true,
+            },
         },
         {
             sequelize,
-            modelName : "Answer",
-            tableName : "answers",
-        }
+            modelName: "Answer",
+            tableName: "answers",
+        },
     );
 
     return Answer;

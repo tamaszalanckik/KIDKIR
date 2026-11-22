@@ -1,27 +1,27 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
 
-export default (sequelize:Sequelize) => {
-    class CardTask extends Model {};
+export default (sequelize: Sequelize) => {
+    class CardTask extends Model {}
 
     CardTask.init(
         {
-            ID : {
-                type : DataTypes.UUID,
-                primaryKey : true,
+            ID: {
+                type: DataTypes.UUID,
+                primaryKey: true,
                 defaultValue: DataTypes.UUIDV4,
-                allowNull: false
+                allowNull: false,
             },
-            pair_count : {
-                type : DataTypes.INTEGER,
-                allowNull : false,
-                defaultValue : 4
-            }
+            pair_count: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                defaultValue: 4,
+            },
         },
         {
             sequelize,
-            modelName : "CardTask",
-            tableName : "card_tasks",
-        }
+            modelName: "CardTask",
+            tableName: "card_tasks",
+        },
     );
 
     return CardTask;

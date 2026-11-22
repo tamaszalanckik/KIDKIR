@@ -12,14 +12,23 @@ import PickTask from "./PickTask";
 import TaskGroup from "./TaskGroup";
 import Class from "./Class";
 import UserAnswersTask from "./UserAnswersTask";
-import { 
-    TaskGroupContainsTask, UserAttendsClass, UserCreatesTaskGroup, 
-    UserHasCustomization, UserLoggedInWithSession, UserTeachesClass, 
-    TaskIsCardTask, TaskIsPickTask, TaskIsWriteTask, CardTaskContainsCard, 
-    WriteTasksGoodAnswer, PickTasksGoodAnswer, PickTaskIncludesAnswer, 
-    UserDoesAnswersTask} from "./relations";
+import {
+    TaskGroupContainsTask,
+    UserAttendsClass,
+    UserCreatesTaskGroup,
+    UserHasCustomization,
+    UserLoggedInWithSession,
+    UserTeachesClass,
+    TaskIsCardTask,
+    TaskIsPickTask,
+    TaskIsWriteTask,
+    CardTaskContainsCard,
+    WriteTasksGoodAnswer,
+    PickTaskIncludesAnswer,
+    UserDoesAnswersTask,
+} from "./relations";
 
-export default (sequelize:Sequelize) => {
+export default (sequelize: Sequelize) => {
     const Users = User(sequelize);
     const Customizations = Customization(sequelize);
     const Sessions = Session(sequelize);
@@ -33,26 +42,35 @@ export default (sequelize:Sequelize) => {
     const Classes = Class(sequelize);
     const UserAnswersTasks = UserAnswersTask(sequelize);
 
+    UserAttendsClass(Users, Classes);
+    UserDoesAnswersTask(Users, Tasks, UserAnswersTasks);
+    TaskGroupContainsTask(TaskGroups, Tasks);
     UserHasCustomization(Users, Customizations);
     UserLoggedInWithSession(Users, Sessions);
     UserTeachesClass(Users, Classes);
-    UserAttendsClass(Users, Classes);
     UserCreatesTaskGroup(Users, TaskGroups);
-
-    
     TaskIsCardTask(Tasks, CardTasks);
     TaskIsPickTask(Tasks, PickTasks);
     TaskIsWriteTask(Tasks, WriteTasks);
-    
-    
     CardTaskContainsCard(CardTasks, Cards);
     WriteTasksGoodAnswer(WriteTasks, Answers);
-    
-    PickTasksGoodAnswer(PickTasks, Answers);
-    PickTaskIncludesAnswer(PickTasks, Answers);
-    
-    // UserDoesAnswersTask(Users, Tasks, UserAnswersTasks);
-    TaskGroupContainsTask(TaskGroups, Tasks);
 
-    return { Users, Customizations, Sessions, Tasks, CardTasks, Cards, WriteTasks, Answers, PickTasks, TaskGroups, Classes, UserAnswersTasks };
+    // error
+    // PickTasksGoodAnswer(PickTasks, Answers);
+    PickTaskIncludesAnswer(PickTasks, Answers);
+
+    return {
+        Users,
+        Customizations,
+        Sessions,
+        Tasks,
+        CardTasks,
+        Cards,
+        WriteTasks,
+        Answers,
+        PickTasks,
+        TaskGroups,
+        Classes,
+        UserAnswersTasks,
+    };
 };
