@@ -20,9 +20,8 @@ export default (sequelize: Sequelize) => {
                 allowNull: false,
                 defaultValue: "No description provided.",
             },
-            good_answer: {
+            is_good_answer: {
                 type: DataTypes.BOOLEAN,
-                defaultValue: true,
             },
         },
         {

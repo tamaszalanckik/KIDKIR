@@ -15,6 +15,14 @@ export default (sequelize: Sequelize) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            answer_value: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            answer_description: {
+                type: DataTypes.STRING,
+                defaultValue: "No description provided."
+            },
         },
         {
             sequelize,

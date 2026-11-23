@@ -23,7 +23,6 @@ import {
     TaskIsPickTask,
     TaskIsWriteTask,
     CardTaskContainsCard,
-    WriteTasksGoodAnswer,
     PickTaskIncludesAnswer,
     UserDoesAnswersTask,
 } from "./relations";
@@ -53,10 +52,6 @@ export default (sequelize: Sequelize) => {
     TaskIsPickTask(Tasks, PickTasks);
     TaskIsWriteTask(Tasks, WriteTasks);
     CardTaskContainsCard(CardTasks, Cards);
-    WriteTasksGoodAnswer(WriteTasks, Answers);
-
-    // error
-    // PickTasksGoodAnswer(PickTasks, Answers);
     PickTaskIncludesAnswer(PickTasks, Answers);
 
     return {

@@ -7,12 +7,21 @@ module.exports = {
             {
                 ID: "wt-00-01",
                 question: "Mikor fedezte fel Kolombusz Kristóf Amerikát?",
+                answer_value: "1492",
+                answer_description: "No description provided.",
             },
             {
                 ID: "wt-00-02",
                 question: "Melyik ország határos Magyarországgal északon?",
+                answer_value: "Szlovákia",
+                answer_description: "A térkép nem hazudik.",
             },
-            { ID: "wt-00-03", question: "6 + 4 - 15 = ?" },
+            { 
+                ID: "wt-00-03", 
+                question: "6 + 4 - 15 = ?",
+                answer_value: "-5",
+                answer_description: "A számológép nem hazudik.",
+            },
         ]);
     },
 

@@ -1,5 +1,4 @@
 export function UserHasCustomization(U: any, C: any) {
-    // 1-N
     U.belongsTo(C, {
         foreignKey: "customizationID",
 
@@ -13,7 +12,6 @@ export function UserHasCustomization(U: any, C: any) {
 }
 
 export function UserLoggedInWithSession(U: any, S: any) {
-    // 1-1
     S.hasOne(U, {
         foreignKey: "sessionID",
 
@@ -91,19 +89,6 @@ export function TaskIsWriteTask(T: any, W: any) {
     });
 }
 
-export function WriteTasksGoodAnswer(W: any, A: any) {
-    W.belongsTo(A, {
-        foreignKey: "answerID",
-
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-    });
-
-    A.hasOne(W, {
-        foreignKey: "answerID",
-    });
-}
-
 export function TaskIsPickTask(T: any, P: any) {
     T.hasOne(P, {
         foreignKey: "taskID",
@@ -119,32 +104,18 @@ export function TaskIsPickTask(T: any, P: any) {
 
 export function PickTaskIncludesAnswer(P: any, A: any) {
     A.belongsTo(P, {
-        foreignKey: "pick_taskID",
+        foreignKey: "taskID",
 
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
     });
 
     P.hasMany(A, {
-        foreignKey: "pick_taskID",
+        foreignKey: "taskID",
     });
 }
 
-// export function PickTasksGoodAnswer(P:any, A:any) {
-//     P.belongsTo(A, {
-//         foreignKey : "good_answerID",
-
-//         onDelete : "CASCADE",
-//         onUpdate : "CASCADE"
-//     });
-
-//     A.hasOne(P, {
-//         foreignKey : "good_answerID",
-//     })
-// }
-
 export function UserAttendsClass(U: any, C: any) {
-    // N-M
     U.belongsToMany(C, {
         through: "user_attends_class",
         foreignKey: "userID",
